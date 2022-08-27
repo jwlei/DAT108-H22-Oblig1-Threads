@@ -1,6 +1,5 @@
 package no.hvl.dat108.ex1.task1;
 
-import no.hvl.dat108.ex1.task1.TimeUtil;
 public class Printer implements Runnable {
 
     private boolean isRunning = true;
