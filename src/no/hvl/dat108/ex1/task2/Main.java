@@ -41,13 +41,13 @@ public class Main {
         final String[] chefs = {"Joachim", "Finn", "Sindre"};
         final String[] waiters = {"Pernille", "Sara"};
         final int capacity = 4;
-        TimeUtil timeUtil = new TimeUtil();
+        final int minimumTimeToMake = 2000, maximumTimeToMake = 6000; // In milliseconds
+        TimeUtil timeUtil = new TimeUtil(minimumTimeToMake, maximumTimeToMake);
 
         //Init print
-        System.out.println("Current time: [" + timeUtil.currentDateTime() + "]\n"
-                            + "Chefs: " + Arrays.toString(chefs) + "\n"
-                            + "Waiters: " + Arrays.toString(waiters) + "\n"
-                            + "Capacity of the hamburgertray: " + capacity);
+        System.out.println("[" + timeUtil.currentDateTime() + "] " + "Chefs: " + Arrays.toString(chefs) + "\n"
+                            + "[" + timeUtil.currentDateTime() + "] "+ "Waiters: " + Arrays.toString(waiters) + "\n"
+                            + "[" + timeUtil.currentDateTime() + "] "+ "Capacity of the hamburgertray: " + capacity);
 
         // 1 Tray
             /*
@@ -61,6 +61,7 @@ public class Main {
               Start all chef threads
              */
             new Chef(hamburgerTray, name).start();
+            System.out.println("[" + timeUtil.currentDateTime() + "] " + "Chef: " + name + " is ready to work");
         }
 
         // 2 Waiters
@@ -69,6 +70,7 @@ public class Main {
               Start all waiter threads
              */
             new Chef(hamburgerTray, name).start();
+            System.out.println("[" + timeUtil.currentDateTime() + "] " + "Waiter: " + name + " is ready to work");
         }
 
     }
