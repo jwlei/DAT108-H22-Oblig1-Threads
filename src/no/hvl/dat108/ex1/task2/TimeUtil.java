@@ -9,6 +9,7 @@ public class TimeUtil {
     private Random random = new Random();
     private final int minimumTimeToMake, maximumTimeToMake;
     public int timeToMake;
+
     public TimeUtil(int minimumTimeToMake, int maximumTimeToMake){
         this.minimumTimeToMake = minimumTimeToMake;
         this.maximumTimeToMake = maximumTimeToMake;

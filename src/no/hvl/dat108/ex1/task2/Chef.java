@@ -5,7 +5,6 @@ import java.util.Random;
 public class Chef extends Thread {
     /**
      * Chef threads
-     *
      * Puts it on the hamburgertray when done
      */
 

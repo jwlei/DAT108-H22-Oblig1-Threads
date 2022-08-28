@@ -1,7 +1,7 @@
 package no.hvl.dat108.ex1.task2;
 
 public class Hamburger {
-
+    // TODO: Think is done?
     private static int hamburgerNumber = 0;
     private int id;
 

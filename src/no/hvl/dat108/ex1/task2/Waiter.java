@@ -2,7 +2,7 @@ package no.hvl.dat108.ex1.task2;
 
 import java.util.Random;
 
-public class Waiter {
+public class Waiter extends Thread {
     /**
      * Waiter threads
      * Removes hamburger from tray at customer order
@@ -17,7 +17,14 @@ public class Waiter {
         this.hamburgerTray = hamburgerTray;
     }
 
-    private void setName(String name) {
+
+    @Override
+    public void run() {
+        // TODO
+            // wait timeTomMake
+                // removeBurger
+
+        // print?
     }
 
 
