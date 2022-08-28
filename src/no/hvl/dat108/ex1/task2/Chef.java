@@ -9,15 +9,17 @@ public class Chef extends Thread {
      */
 
     private final HamburgerTray hamburgerTray;
+    private final TimeUtil timeUtil;
     //private Random random = new Random();
     private String name;
     private int timeToMake;
 
 
 
-    public Chef(HamburgerTray hamburgerTray, String name) {
+    public Chef(HamburgerTray hamburgerTray, String name, TimeUtil timeUtil) {
         this.setName(name);
         this.hamburgerTray = hamburgerTray;
+        this.timeUtil = timeUtil;
 
     }
 
@@ -28,6 +30,15 @@ public class Chef extends Thread {
 
     @Override
     public void run() {
+        while(true) {
+            try {
+                int wait = timeUtil.TimeToMake();
+                this.sleep(wait);
+                System.out.println(timeUtil.currentTimeStamp() + "CHEF doing the work");
+            } catch (InterruptedException e){
+                e.printStackTrace();
+            }
+        }
         // TODO
         // make burger
             // wait timeTomMake

@@ -8,25 +8,35 @@ public class Waiter extends Thread {
      * Removes hamburger from tray at customer order
      */
     private final HamburgerTray hamburgerTray;
+    private final TimeUtil timeUtil;
     //private Random random = new Random();
     private String name;
     private int timeToMake;
 
-    public Waiter(HamburgerTray hamburgerTray, String name) {
+
+    public Waiter(HamburgerTray hamburgerTray, String name, TimeUtil timeUtil) {
         this.setName(name);
         this.hamburgerTray = hamburgerTray;
+        this.timeUtil = timeUtil;
     }
 
 
-    @Override
     public void run() {
         // TODO
-            // wait timeTomMake
-                // removeBurger
+        // wait timeTomMake
+        // removeBurger
 
         // print?
+        while (true) {
+            try {
+                int wait = timeUtil.TimeToMake();
+                this.sleep(wait);
+                System.out.println(timeUtil.currentTimeStamp() + "WAITER doing the work");
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
+        // Todo: Remove burger
     }
-
-
-    // Todo: Remove burger
 }

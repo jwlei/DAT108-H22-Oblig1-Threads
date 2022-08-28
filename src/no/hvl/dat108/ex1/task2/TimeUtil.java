@@ -15,17 +15,17 @@ public class TimeUtil {
         this.maximumTimeToMake = maximumTimeToMake;
     }
 
-    public String currentDateTime() {
+    public String currentTimeStamp() {
         /**
          * Utility method for getting and parsing the current time.
          * For use in timestamps in the printed text.
          */
         Calendar c = Calendar.getInstance();
-        SimpleDateFormat dateformat = new SimpleDateFormat("HH:mm:ss");  //it will give you the date in the formate that is given in the image
+        SimpleDateFormat dateformat = new SimpleDateFormat("[HH:mm:ss]: ");
         return dateformat.format(c.getTime());
     }
 
-    public int timeToMake() {
+    public int TimeToMake() {
         /**
          * Get a random time to make a hamburger
          * between 2-6 seconds

@@ -1,6 +1,5 @@
 package no.hvl.dat108.ex1.task2;
 
-import java.sql.Time;
 import java.util.Arrays;
 
 public class Main {
@@ -42,12 +41,14 @@ public class Main {
         final String[] waiters = {"Pernille", "Sara"};
         final int capacity = 4;
         final int minimumTimeToMake = 2000, maximumTimeToMake = 6000; // In milliseconds
+
         TimeUtil timeUtil = new TimeUtil(minimumTimeToMake, maximumTimeToMake);
 
         //Init print
-        System.out.println("[" + timeUtil.currentDateTime() + "] " + "Chefs: " + Arrays.toString(chefs) + "\n"
-                            + "[" + timeUtil.currentDateTime() + "] "+ "Waiters: " + Arrays.toString(waiters) + "\n"
-                            + "[" + timeUtil.currentDateTime() + "] "+ "Capacity of the hamburgertray: " + capacity);
+        System.out.println(timeUtil.currentTimeStamp() + "Chefs: " + Arrays.toString(chefs) + "\n"
+                            + timeUtil.currentTimeStamp() + "Waiters: " + Arrays.toString(waiters) + "\n"
+                            + timeUtil.currentTimeStamp() + "Capacity of the hamburgertray: " + capacity + "\n"
+                            + " --- --- --- --- --- --- --- --- --- --- ");
 
         // 1 Tray
             /*
@@ -55,13 +56,14 @@ public class Main {
              */
         HamburgerTray hamburgerTray = new HamburgerTray(capacity);
 
+
         // 3 Chefs
         for (String name : chefs) {
             /*
               Start all chef threads
              */
-            new Chef(hamburgerTray, name).start();
-            System.out.println("[" + timeUtil.currentDateTime() + "] " + "Chef: " + name + " is ready to work");
+            new Chef(hamburgerTray, name, timeUtil).start();
+            System.out.println(timeUtil.currentTimeStamp() + "Chef: " + name + " is ready to work");
         }
 
         // 2 Waiters
@@ -69,9 +71,11 @@ public class Main {
             /*
               Start all waiter threads
              */
-            new Chef(hamburgerTray, name).start();
-            System.out.println("[" + timeUtil.currentDateTime() + "] " + "Waiter: " + name + " is ready to work");
+            new Waiter (hamburgerTray, name, timeUtil).start();
+            System.out.println(timeUtil.currentTimeStamp() + "Waiter: " + name + " is ready to work");
         }
+
+        System.out.println(" --- --- --- --- --- --- --- --- --- --- ");
 
     }
 }
