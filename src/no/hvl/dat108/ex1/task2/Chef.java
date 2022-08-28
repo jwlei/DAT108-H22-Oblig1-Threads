@@ -34,7 +34,7 @@ public class Chef extends Thread {
             try {
                 int wait = timeUtil.TimeToMake();
                 this.sleep(wait);
-                System.out.println(timeUtil.currentTimeStamp() + "CHEF doing the work");
+                System.out.println(timeUtil.currentTimeStamp() + "Chef " + Thread.currentThread().getName() + " doing the work");
             } catch (InterruptedException e){
                 e.printStackTrace();
             }

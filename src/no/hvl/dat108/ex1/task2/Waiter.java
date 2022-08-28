@@ -31,7 +31,7 @@ public class Waiter extends Thread {
             try {
                 int wait = timeUtil.TimeToMake();
                 this.sleep(wait);
-                System.out.println(timeUtil.currentTimeStamp() + "WAITER doing the work");
+                System.out.println(timeUtil.currentTimeStamp() + "Waiter " + Thread.currentThread().getName() + " doing the work");
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
