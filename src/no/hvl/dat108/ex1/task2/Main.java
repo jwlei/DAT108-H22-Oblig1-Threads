@@ -54,8 +54,8 @@ public class Main {
         TimeUtil timeUtil = new TimeUtil(minimumTimeToMake, maximumTimeToMake);
 
         //Init print
-        System.out.println(timeUtil.currentTimeStamp() + Arrays.toString(chefs) + "\n"
-                            + timeUtil.currentTimeStamp() + Arrays.toString(waiters) + "\n"
+        System.out.println(timeUtil.currentTimeStamp() + "Chefs: " + Arrays.toString(chefs) + "\n"
+                            + timeUtil.currentTimeStamp() + "Waiters: " +Arrays.toString(waiters) + "\n"
                             + timeUtil.currentTimeStamp() + "Capacity of the hamburger tray is: " + (capacity) + " hamburgers\n"
                             + " --- --- --- --- --- --- --- --- --- --- ");
 
