@@ -10,7 +10,6 @@ public class Chef extends Thread {
 
     private final HamburgerTray hamburgerTray;
     private final TimeUtil timeUtil;
-    //private Random random = new Random();
     private String name;
     private int timeToMake;
 
@@ -20,7 +19,6 @@ public class Chef extends Thread {
         this.setName(name);
         this.hamburgerTray = hamburgerTray;
         this.timeUtil = timeUtil;
-
     }
 
     private Hamburger createHamburger() {
@@ -34,19 +32,15 @@ public class Chef extends Thread {
     public void run() {
         while(true) {
             try {
+                // WAIT
                 int wait = timeUtil.TimeToMake();
                 this.sleep(wait);
+                // CREATE AND ADD HAMBURGER
                 hamburgerTray.addHamburgerToTray(new Hamburger());
-                //System.out.println(timeUtil.currentTimeStamp() + "Chef " + Thread.currentThread().getName() + " doing the work");
+                //Test line - System.out.println(timeUtil.currentTimeStamp() + "Chef " + Thread.currentThread().getName() + " doing the work");
             } catch (InterruptedException e){
                 e.printStackTrace();
             }
         }
-        // TODO
-        // make burger
-            // wait timeTomMake
-                // addBurger
-
-        // print?
     }
 }

@@ -23,7 +23,7 @@ public class TimeUtil {
          * For use in timestamps in the printed text.
          */
         Calendar c = Calendar.getInstance();
-        SimpleDateFormat dateformat = new SimpleDateFormat("[HH:mm:ss]: ");
+        SimpleDateFormat dateformat = new SimpleDateFormat("[HH:mm:ss] ");
         return dateformat.format(c.getTime());
     }
 

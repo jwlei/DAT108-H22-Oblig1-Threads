@@ -9,6 +9,7 @@ public class Waiter extends Thread {
      */
     private final HamburgerTray hamburgerTray;
     private final TimeUtil timeUtil;
+    private PrintUtil printUtil;
     //private Random random = new Random();
     private String name;
     private int timeToMake;
@@ -18,6 +19,7 @@ public class Waiter extends Thread {
         this.setName(name);
         this.hamburgerTray = hamburgerTray;
         this.timeUtil = timeUtil;
+        this.printUtil = new PrintUtil();
     }
 
 
@@ -37,12 +39,6 @@ public class Waiter extends Thread {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            hamburgerTray.printHamburgerTray();
-            System.out.println(); // empty line for formatting
         }
-
-
-
-
     }
 }

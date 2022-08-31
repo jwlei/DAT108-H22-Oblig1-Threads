@@ -2,11 +2,13 @@ package no.hvl.dat108.ex1.task2;
 
 public class HamburgerTray {
 
+    private TimeUtil timeUtil;
+    private PrintUtil printUtil;
+    private final int capacity;
     private int lastInQue;
     private Hamburger[] hamburgerTray;
     private Hamburger hamburger;
-    private int capacity;
-    private TimeUtil timeUtil;
+
 
     public HamburgerTray(int i) {
         /**
@@ -16,17 +18,32 @@ public class HamburgerTray {
         lastInQue = 0;
         capacity = i;
         this.timeUtil = new TimeUtil();
-
+        this.printUtil = new PrintUtil();
     }
 
-    // TODO: isEmpty
+    public synchronized void printHamburgerTray() {
+        /**
+         * Prints the current status of the hamburgerTray
+         */
+        // TODO: Migrate to printUtil?
+        System.out.print(timeUtil.currentTimeStamp() + "Hamburgers on the track: ");
+
+        for(int i = 0; i < lastInQue; i++) {
+            if (hamburgerTray[0] == null) {
+                printUtil.printHamburgerTrayEmpty();
+            }
+            // For each burger, get ID and print.
+            System.out.print("[" + hamburgerTray[i].getId() + "] ");
+        }
+        System.out.println();
+    }
+
     public synchronized boolean isEmpty() {
         /**
          * Checks if the que is empty
          */
         return hamburgerTray[0] == null; }
 
-    // TODO: isFull
     public synchronized boolean isFull() {
         /**
          * Checks if the que is full
@@ -34,40 +51,28 @@ public class HamburgerTray {
         return lastInQue == capacity;
     }
 
-    // TODO: Print --> adding/removing hamburger, status of the tray, action on isFull/isEmpty
-    public synchronized void printHamburgerTray() {
-        /**
-         * Prints the current status of the hamburgerTray
-         */
-        System.out.print(timeUtil.currentTimeStamp() + "Hamburgers on the track: ");
-
-        for(int i = 0; i < lastInQue; i++) {
-            // For each burger, get ID and print.
-            System.out.print("[" + hamburgerTray[i].getId() + "]" + " ");
-        }
-    }
-
-    // TODO: Add burger
     public synchronized void addHamburgerToTray(Hamburger hamburger) throws InterruptedException {
         /**
          * Function to add hamburger to the tray
          */
         while (isFull()) {
             // If full - wait untill notified.
-            System.out.println(timeUtil.currentTimeStamp() + Thread.currentThread().getName() + " waiting to deliver hamburger to the tray");
+            printUtil.printIsFull();
+            printHamburgerTray();
             wait();
         }
+
         hamburgerTray[lastInQue] = hamburger;
         lastInQue++;
-        System.out.print(timeUtil.currentTimeStamp() + Thread.currentThread().getName() + " adds a [" +hamburger.getId()+"]" + " => ");
+        printUtil.printAddHamburger(hamburger);
+        printHamburgerTray();
 
         if (lastInQue == 1)
-            // If last in que == 1, notify chefs that the tray is ready to receive hamburgers
+            // If last in que == 1, notify threads(chefs) that the tray is ready to receive hamburgers
             notify();
 
     }
 
-    // TODO: get burger
     public synchronized Hamburger removeHamburgerFromTray() throws InterruptedException {
         /**
          * Function for waiter to hamburger burger from tray and deliver to "customer"
@@ -75,22 +80,29 @@ public class HamburgerTray {
         while (isEmpty()) {
             // If no hamburgers, wait.
             printHamburgerTray();
-            System.out.println(timeUtil.currentTimeStamp() + Thread.currentThread().getName() + " waiting to collect a hamburger from the tray");
+            printUtil.printIsEmpty();
             wait();
         }
-        // Remove hamburger from position 0 and decrement the last in que counter.
+
+        // Remove hamburger from position 0 and decrement the Que counter.
         Hamburger deliver = hamburgerTray[0];
         lastInQue--;
 
+        // For each element,
         for(int i = 0; i < lastInQue; i++) {
+            // Move each Hamburger in the que
+            // e.g. The hamburger that was in slot 0 is delivered, move hamburger in slot 1 --> 0.
+            // Simulates a LIFO Que
             hamburgerTray[i] = hamburgerTray[i+1];
         }
         hamburgerTray[lastInQue] = null;
 
-        System.out.print(timeUtil.currentTimeStamp() + Thread.currentThread().getName() + " collects [" + deliver.getId() + "]" + " <= ");
         if (lastInQue == capacity-1)
+            // If there is a room in the que, notify the sleeping threads(chefs)
             notify();
 
+        printUtil.printRemoveHamburger(deliver);
+        printHamburgerTray();
         return deliver;
     }
 
