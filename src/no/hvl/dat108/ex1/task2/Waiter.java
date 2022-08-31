@@ -23,20 +23,26 @@ public class Waiter extends Thread {
 
     public void run() {
         // TODO
-        // wait timeTomMake
-        // removeBurger
+        // wait timeTomMake x
+        // removeBurger x
 
         // print?
         while (true) {
             try {
                 int wait = timeUtil.TimeToMake();
                 this.sleep(wait);
-                System.out.println(timeUtil.currentTimeStamp() + "Waiter " + Thread.currentThread().getName() + " doing the work");
+                // Todo: Remove burger - made in hamburgerTRAY class
+                hamburgerTray.removeHamburgerFromTray();
+                //System.out.println(timeUtil.currentTimeStamp() + "Waiter " + Thread.currentThread().getName() + " doing the work");
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+            hamburgerTray.printHamburgerTray();
+            System.out.println(); // empty line for formatting
         }
 
-        // Todo: Remove burger
+
+
+
     }
 }

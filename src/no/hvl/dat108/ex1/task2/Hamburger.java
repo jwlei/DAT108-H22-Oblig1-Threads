@@ -4,6 +4,7 @@ public class Hamburger {
     // TODO: Think is done?
     private static int hamburgerNumber = 0;
     private int id;
+    private String hamburgerId;
 
     Hamburger() {
         /**
@@ -14,7 +15,7 @@ public class Hamburger {
     }
 
 
-    public int getId() {
-        return id;
+    public String getId() {
+        return hamburgerId = "HamburgerID: " + id;
     }
 }
