@@ -45,8 +45,8 @@ public class Main {
         TimeUtil timeUtil = new TimeUtil(minimumTimeToMake, maximumTimeToMake);
 
         //Init print
-        System.out.println(timeUtil.currentTimeStamp() + "Chefs: " + Arrays.toString(chefs) + "\n"
-                            + timeUtil.currentTimeStamp() + "Waiters: " + Arrays.toString(waiters) + "\n"
+        System.out.println(timeUtil.currentTimeStamp() + Arrays.toString(chefs) + "\n"
+                            + timeUtil.currentTimeStamp() + Arrays.toString(waiters) + "\n"
                             + timeUtil.currentTimeStamp() + "Capacity of the hamburgertray: " + capacity + "\n"
                             + " --- --- --- --- --- --- --- --- --- --- ");
 
@@ -62,8 +62,10 @@ public class Main {
             /*
               Start all chef threads
              */
+            String role = "[Chef] ";
+            name = role+=name;
             new Chef(hamburgerTray, name, timeUtil).start();
-            System.out.println(timeUtil.currentTimeStamp() + "Chef: " + name + " is ready to work");
+            System.out.println(timeUtil.currentTimeStamp() + name + " is ready to work");
         }
 
         // 2 Waiters
@@ -71,8 +73,10 @@ public class Main {
             /*
               Start all waiter threads
              */
+            String role = "[Waiter] ";
+            name = role+=name;
             new Waiter (hamburgerTray, name, timeUtil).start();
-            System.out.println(timeUtil.currentTimeStamp() + "Waiter: " + name + " is ready to work");
+            System.out.println(timeUtil.currentTimeStamp() + name + " is ready to work");
         }
 
         System.out.println(" --- --- --- --- --- --- --- --- --- --- ");

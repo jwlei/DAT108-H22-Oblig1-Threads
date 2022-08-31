@@ -43,7 +43,7 @@ public class HamburgerTray {
 
         for(int i = 0; i < lastInQue; i++) {
             // For each burger, get ID and print.
-            System.out.print(timeUtil.currentTimeStamp() + "[" + hamburgerTray[i].getId() + "]" + " ");
+            System.out.print("[" + hamburgerTray[i].getId() + "]" + " ");
         }
     }
 
