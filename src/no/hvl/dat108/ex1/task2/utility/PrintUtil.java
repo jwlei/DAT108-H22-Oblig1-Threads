@@ -1,4 +1,6 @@
-package no.hvl.dat108.ex1.task2;
+package no.hvl.dat108.ex1.task2.utility;
+
+import no.hvl.dat108.ex1.task2.models.Hamburger;
 
 public class PrintUtil {
     private TimeUtil timeUtil;
@@ -9,11 +11,12 @@ public class PrintUtil {
     }
 
     public void printHamburgerTrayEmpty() {
-        System.out.println("[TRAY IS EMPTY] ");
+        System.out.print("[TRAY IS EMPTY] ");
     }
 
+    // TODO: sout --> return string
     public void printIsFull() {
-        System.out.println(timeUtil.currentTimeStamp() + Thread.currentThread().getName() + " waiting to deliver hamburger to the tray");
+        System.out.print(timeUtil.currentTimeStamp() + Thread.currentThread().getName() + " waiting to deliver hamburger to the tray");
     }
 
     public void printIsEmpty(){

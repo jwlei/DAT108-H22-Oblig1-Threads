@@ -1,4 +1,4 @@
-package no.hvl.dat108.ex1.task2;
+package no.hvl.dat108.ex1.task2.models;
 
 public class Hamburger {
     private static int hamburgerNumber = 0;

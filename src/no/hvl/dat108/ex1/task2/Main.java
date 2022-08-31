@@ -1,5 +1,10 @@
 package no.hvl.dat108.ex1.task2;
 
+import no.hvl.dat108.ex1.task2.models.Chef;
+import no.hvl.dat108.ex1.task2.models.HamburgerTray;
+import no.hvl.dat108.ex1.task2.models.Waiter;
+import no.hvl.dat108.ex1.task2.utility.TimeUtil;
+
 import java.util.Arrays;
 
 public class Main {
@@ -51,7 +56,7 @@ public class Main {
         //Init print
         System.out.println(timeUtil.currentTimeStamp() + Arrays.toString(chefs) + "\n"
                             + timeUtil.currentTimeStamp() + Arrays.toString(waiters) + "\n"
-                            + timeUtil.currentTimeStamp() + "Capacity of the hamburger tray is: " + (capacity+1) + " hamburgers\n"
+                            + timeUtil.currentTimeStamp() + "Capacity of the hamburger tray is: " + (capacity) + " hamburgers\n"
                             + " --- --- --- --- --- --- --- --- --- --- ");
 
         // 1 Tray
@@ -79,7 +84,7 @@ public class Main {
              */
             String role = "[Waiter] ";
             name = role+=name;
-            new Waiter (hamburgerTray, name, timeUtil).start();
+            new Waiter(hamburgerTray, name, timeUtil).start();
             System.out.println(timeUtil.currentTimeStamp() + name + " is ready to work");
         }
 

@@ -1,4 +1,8 @@
-package no.hvl.dat108.ex1.task2;
+package no.hvl.dat108.ex1.task2.models;
+
+
+import no.hvl.dat108.ex1.task2.utility.PrintUtil;
+import no.hvl.dat108.ex1.task2.utility.TimeUtil;
 
 public class HamburgerTray {
 
@@ -7,7 +11,7 @@ public class HamburgerTray {
     private final int capacity;
     private int lastInQue;
     private Hamburger[] hamburgerTray;
-    private Hamburger hamburger;
+
 
 
     public HamburgerTray(int i) {
@@ -28,15 +32,18 @@ public class HamburgerTray {
         // TODO: Migrate to printUtil?
         System.out.print(timeUtil.currentTimeStamp() + "Hamburgers on the track: ");
 
-        for(int i = 0; i < lastInQue; i++) {
-            if (hamburgerTray[0] == null) {
-                printUtil.printHamburgerTrayEmpty();
-            }
-            // For each burger, get ID and print.
-            System.out.print("[" + hamburgerTray[i].getId() + "] ");
+        if (hamburgerTray[0] == null) {
+            printUtil.printHamburgerTrayEmpty();
         }
+        else {
+            for(int i = 0; i < lastInQue; i++) {
+
+                // For each burger, get ID and print.
+                System.out.print("[" + hamburgerTray[i].getId() + "] ");
+            }
+         }
         System.out.println();
-    }
+        }
 
     public synchronized boolean isEmpty() {
         /**

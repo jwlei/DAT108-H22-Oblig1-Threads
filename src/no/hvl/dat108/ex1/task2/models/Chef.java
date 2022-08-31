@@ -1,6 +1,6 @@
-package no.hvl.dat108.ex1.task2;
+package no.hvl.dat108.ex1.task2.models;
 
-import java.util.Random;
+import no.hvl.dat108.ex1.task2.utility.TimeUtil;
 
 public class Chef extends Thread {
     /**

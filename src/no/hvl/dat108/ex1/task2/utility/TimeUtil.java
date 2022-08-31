@@ -1,4 +1,4 @@
-package no.hvl.dat108.ex1.task2;
+package no.hvl.dat108.ex1.task2.utility;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
