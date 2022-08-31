@@ -6,6 +6,7 @@ public class HamburgerTray {
     private Hamburger[] hamburgerTray;
     private Hamburger hamburger;
     private int capacity;
+    private TimeUtil timeUtil;
 
     public HamburgerTray(int i) {
         /**
@@ -14,6 +15,8 @@ public class HamburgerTray {
         hamburgerTray = new Hamburger[i];
         lastInQue = 0;
         capacity = i;
+        this.timeUtil = new TimeUtil();
+
     }
 
     // TODO: isEmpty
@@ -36,11 +39,11 @@ public class HamburgerTray {
         /**
          * Prints the current status of the hamburgerTray
          */
-        System.out.print("Hamburgers on the track: ");
+        System.out.print(timeUtil.currentTimeStamp() + "Hamburgers on the track: ");
 
         for(int i = 0; i < lastInQue; i++) {
             // For each burger, get ID and print.
-            System.out.print("[" + hamburgerTray[i].getId() + "]" + " ");
+            System.out.print(timeUtil.currentTimeStamp() + "[" + hamburgerTray[i].getId() + "]" + " ");
         }
     }
 
@@ -51,12 +54,12 @@ public class HamburgerTray {
          */
         while (isFull()) {
             // If full - wait untill notified.
-            System.out.println(Thread.currentThread().getName() + " waiting to deliver hamburger");
+            System.out.println(timeUtil.currentTimeStamp() + Thread.currentThread().getName() + " waiting to deliver hamburger to the tray");
             wait();
         }
         hamburgerTray[lastInQue] = hamburger;
         lastInQue++;
-        System.out.print(Thread.currentThread().getName() + " adds a [" +hamburger.getId()+"]" + " => ");
+        System.out.print(timeUtil.currentTimeStamp() + Thread.currentThread().getName() + " adds a [" +hamburger.getId()+"]" + " => ");
 
         if (lastInQue == 1)
             // If last in que == 1, notify chefs that the tray is ready to receive hamburgers
@@ -71,7 +74,8 @@ public class HamburgerTray {
          */
         while (isEmpty()) {
             // If no hamburgers, wait.
-            System.out.println(Thread.currentThread().getName() + " waiting to collect a hamburger");
+            printHamburgerTray();
+            System.out.println(timeUtil.currentTimeStamp() + Thread.currentThread().getName() + " waiting to collect a hamburger from the tray");
             wait();
         }
         // Remove hamburger from position 0 and decrement the last in que counter.
@@ -83,7 +87,7 @@ public class HamburgerTray {
         }
         hamburgerTray[lastInQue] = null;
 
-        System.out.print(Thread.currentThread().getName() + " collects [" + deliver.getId() + "]" + " <= ");
+        System.out.print(timeUtil.currentTimeStamp() + Thread.currentThread().getName() + " collects [" + deliver.getId() + "]" + " <= ");
         if (lastInQue == capacity-1)
             notify();
 

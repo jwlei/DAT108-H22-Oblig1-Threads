@@ -7,9 +7,11 @@ import java.util.Random;
 public class TimeUtil {
 
     private Random random = new Random();
-    private final int minimumTimeToMake, maximumTimeToMake;
+    private int minimumTimeToMake;
+    private int maximumTimeToMake;
     public int timeToMake;
 
+    public TimeUtil(){}
     public TimeUtil(int minimumTimeToMake, int maximumTimeToMake){
         this.minimumTimeToMake = minimumTimeToMake;
         this.maximumTimeToMake = maximumTimeToMake;

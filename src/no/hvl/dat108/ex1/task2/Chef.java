@@ -24,8 +24,10 @@ public class Chef extends Thread {
     }
 
     private Hamburger createHamburger() {
-        // TODO
-        return null;
+        /**
+         * Creates and returns a new hamburger when called
+         */
+        return new Hamburger();
     }
 
     @Override
@@ -34,7 +36,8 @@ public class Chef extends Thread {
             try {
                 int wait = timeUtil.TimeToMake();
                 this.sleep(wait);
-                System.out.println(timeUtil.currentTimeStamp() + "Chef " + Thread.currentThread().getName() + " doing the work");
+                hamburgerTray.addHamburgerToTray(new Hamburger());
+                //System.out.println(timeUtil.currentTimeStamp() + "Chef " + Thread.currentThread().getName() + " doing the work");
             } catch (InterruptedException e){
                 e.printStackTrace();
             }
