@@ -2,9 +2,7 @@ package no.hvl.dat108.ex1.task2;
 
 public class PrintUtil {
     private TimeUtil timeUtil;
-    int lastInQue;
-    Hamburger[] hamburgerTray;
-    String tray;
+
 
     public PrintUtil() {
         this.timeUtil = new TimeUtil();
