@@ -13,16 +13,23 @@ public class HamburgerTray {
     private Hamburger[] hamburgerTray;
 
     /*
-    public syncronized void klasseNavn() {
-        --> Alt inni klassen er synchronized og trådene venter
-            på hverandre for å endre etc.
+    public syncronized void myClass() {
+        --> This method is synchronized and thread-safe
     }
 
-    public void klasseNavn() {
+    public void myClass() {
         --> synchronized (this) {
-            Denne delen av koden er synchronized
+            This part is synchronized and thread-safe
         }
-        Denne delen er ikke synchronized
+        This part isn't synchronized and thread-safe
+    }
+
+    @public void run() {
+        for ( x : i ) {
+        syncrhonized (counter) {
+                coutner++ --> The counter object is synchronized
+            }
+        }
     }
      */
 
