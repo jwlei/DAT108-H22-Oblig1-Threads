@@ -12,7 +12,19 @@ public class HamburgerTray {
     private int lastInQue;
     private Hamburger[] hamburgerTray;
 
+    /*
+    public syncronized void klasseNavn() {
+        --> Alt inni klassen er synchronized og trådene venter
+            på hverandre for å endre etc.
+    }
 
+    public void klasseNavn() {
+        --> synchronized (this) {
+            Denne delen av koden er synchronized
+        }
+        Denne delen er ikke synchronized
+    }
+     */
 
     public HamburgerTray(int i) {
         /**
@@ -24,6 +36,7 @@ public class HamburgerTray {
         this.timeUtil = new TimeUtil();
         this.printUtil = new PrintUtil();
     }
+
 
     public synchronized void printHamburgerTray() {
         /**
