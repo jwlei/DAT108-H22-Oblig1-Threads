@@ -28,7 +28,7 @@ public class HamburgerBrett {
     public synchronized Hamburger getHamburger() throws InterruptedException {
 
         while (isEmpty()) {
-            System.out.println(Thread.currentThread().getName() + "ønsker å ta hamburger, men brettet er tomt. Venter!");
+            System.out.println(Thread.currentThread().getName() + " ønsker å ta hamburger, men brettet er tomt. Venter!");
             wait();
         }
         Hamburger ut = hamburgerBrett[0];

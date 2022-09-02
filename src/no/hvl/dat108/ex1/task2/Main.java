@@ -6,7 +6,7 @@ public class Main {
 
 
 
-    Hamburgerbrett hamburgerBrett = new HamburgerBrett();
+    HamburgerBrett hamburgerBrett = new HamburgerBrett();
 
     Kokk kokk1 = new Kokk(hamburgerBrett, "Kokk1");
     Kokk kokk2 = new Kokk(hamburgerBrett, "Kokk2");
