@@ -1,26 +1,17 @@
 package no.hvl.dat108.ex1.task2;
 
 public class Main {
-	
-	public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException {
+
+        HamburgerTray hamburgerTray = new HamburgerTray();
 
 
+        new Thread(new Waiter( hamburgerTray, "Anne")).start();
+        new Thread(new Waiter( hamburgerTray, "Bert")).start();
+//        new Thread(new Waiter( hamburgerTray, "Cees")).start();
 
-    Hamburgerbrett hamburgerBrett = new HamburgerBrett();
-
-    Kokk kokk1 = new Kokk(hamburgerBrett, "Kokk1");
-    Kokk kokk2 = new Kokk(hamburgerBrett, "Kokk2");
-    Kokk kokk3 = new Kokk(hamburgerBrett, "Kokk3");
-    Servitor serv1 = new Servitor(hamburgerBrett, "Servitor1");
-    Servitor serv2 = new Servitor(hamburgerBrett, "Servitor1");
-
-    kokk1.start();
-    kokk2.start();
-    kokk3.start();
-    serv1.start();
-    serv2.start();
-    
-    
-    
-	}
+        new Thread(new Chef(hamburgerTray, "Finn")).start();
+        new Thread(new Chef(hamburgerTray, "Gert")).start();
+        new Thread(new Chef(hamburgerTray, "Hans")).start();
+    }
 }
