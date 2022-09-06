@@ -4,6 +4,8 @@ package no.hvl.dat108.ex1.task2.models;
 import no.hvl.dat108.ex1.task2.utility.PrintUtil;
 import no.hvl.dat108.ex1.task2.utility.TimeUtil;
 
+import java.util.concurrent.BlockingQueue;
+
 public class HamburgerTray {
 
     private TimeUtil timeUtil;
@@ -120,7 +122,7 @@ public class HamburgerTray {
         for(int i = 0; i < lastInQue; i++) {
             // Move each Hamburger in the que
             // e.g. The hamburger that was in slot 0 is delivered, move hamburger in slot 1 --> 0.
-            // Simulates a LIFO Que
+            // Simulates a FIFO Que
             hamburgerTray[i] = hamburgerTray[i+1];
         }
         hamburgerTray[lastInQue] = null;
