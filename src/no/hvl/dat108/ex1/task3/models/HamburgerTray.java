@@ -55,9 +55,10 @@ public class HamburgerTray {
         if (hamburgerTray.isEmpty()) {
             System.out.print("[ ] ");
             }
-        else  {
-            while(hamburgerOnTray.hasNext())
+        else {
+            while (hamburgerOnTray.hasNext()) {
                 System.out.print("[" + hamburgerOnTray.next().getId() + "] ");
+                }
             }
         System.out.println();
         }
