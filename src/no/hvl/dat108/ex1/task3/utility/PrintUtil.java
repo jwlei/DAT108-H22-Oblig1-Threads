@@ -10,12 +10,8 @@ public class PrintUtil {
         this.timeUtil = new TimeUtil();
     }
 
-    public void printHamburgerTrayEmpty() {
-        System.out.print("[TRAY IS EMPTY] ");
-    }
-
     public void printAddHamburger(Hamburger hamburger){
-        System.out.print(timeUtil.currentTimeStamp() + Thread.currentThread().getName() + " adds a [" + hamburger.getId()+"]" + " => ");
+        System.out.print(timeUtil.currentTimeStamp() + Thread.currentThread().getName() + " adds [" + hamburger.getId() + "]" + " => ");
     }
 
     public void printRemoveHamburger(Hamburger hamburger){

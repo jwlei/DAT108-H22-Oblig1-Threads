@@ -12,8 +12,6 @@ public class HamburgerTray {
 
     private TimeUtil timeUtil;
     private PrintUtil printUtil;
-    private final int capacity;
-    private int lastInQue;
     private BlockingQueue<Hamburger> hamburgerTray;
 
     /*
@@ -37,26 +35,30 @@ public class HamburgerTray {
     }
      */
 
-    public HamburgerTray(int i) {
+    public HamburgerTray(int capacity) {
         /**
          * Create the track with a capacity of 4 hamburgers
          */
-        hamburgerTray = new LinkedBlockingDeque<>(i);
-        capacity = i;
+        this.hamburgerTray = new LinkedBlockingDeque<>(capacity);
         this.timeUtil = new TimeUtil();
         this.printUtil = new PrintUtil();
     }
 
 
-    public void printHamburgerTray(Hamburger hamburger) {
+    public void printHamburgerTray() {
         /**
          * Prints the current status of the hamburgerTray
          */
         System.out.print("Hamburgers on the track: ");
         Iterator<Hamburger> hamburgerOnTray = hamburgerTray.iterator();
 
-        while (hamburgerOnTray.hasNext())
-            System.out.print("[" + hamburgerOnTray.next() + "] ");
+        if (hamburgerTray.isEmpty()) {
+            System.out.print("[ ] ");
+            }
+        else  {
+            while(hamburgerOnTray.hasNext())
+                System.out.print("[" + hamburgerOnTray.next().getId() + "] ");
+            }
         System.out.println();
         }
 
@@ -67,16 +69,16 @@ public class HamburgerTray {
          */
         hamburgerTray.put(hamburger);
         printUtil.printAddHamburger(hamburger);
-        printHamburgerTray(hamburger);
+        printHamburgerTray();
     }
 
     public void removeHamburgerFromTray() throws InterruptedException {
         /**
          * Function for waiter to hamburger burger from tray and deliver to "customer"
          */
-        Hamburger deliver = hamburgerTray.take();
-        printUtil.printRemoveHamburger(deliver);
-        printHamburgerTray(deliver);
+        Hamburger deliveredHamburger = hamburgerTray.take();
+        printUtil.printRemoveHamburger(deliveredHamburger);
+        printHamburgerTray();
     }
 
 }

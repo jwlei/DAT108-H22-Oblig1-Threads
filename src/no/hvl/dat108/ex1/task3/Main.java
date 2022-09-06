@@ -51,6 +51,7 @@ public class Main {
         final int capacity = 4;
         final int minimumTimeToMake = 2000, maximumTimeToMake = 6000; // In milliseconds
 
+
         TimeUtil timeUtil = new TimeUtil(minimumTimeToMake, maximumTimeToMake);
 
         //Init print

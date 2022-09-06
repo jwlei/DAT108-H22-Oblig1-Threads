@@ -24,7 +24,7 @@ public class PrintUtil {
     }
 
     public void printAddHamburger(Hamburger hamburger){
-        System.out.print(timeUtil.currentTimeStamp() + Thread.currentThread().getName() + " adds a [" + hamburger.getId()+"]" + " => ");
+        System.out.print(timeUtil.currentTimeStamp() + Thread.currentThread().getName() + " adds [" + hamburger.getId()+"]" + " => ");
     }
 
     public void printRemoveHamburger(Hamburger deliver){
