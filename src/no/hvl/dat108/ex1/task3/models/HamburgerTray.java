@@ -7,12 +7,16 @@ import no.hvl.dat108.ex1.task3.utility.TimeUtil;
 import java.util.Iterator;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingDeque;
+import java.util.concurrent.LinkedBlockingQueue;
 
 public class HamburgerTray {
 
     private TimeUtil timeUtil;
     private PrintUtil printUtil;
+
+    private int capacity;
     private BlockingQueue<Hamburger> hamburgerTray;
+
 
     /*
     public syncronized void myClass() {
@@ -39,6 +43,7 @@ public class HamburgerTray {
         /**
          * Create the track with a capacity of 4 hamburgers
          */
+        this.capacity = capacity;
         this.hamburgerTray = new LinkedBlockingDeque<>(capacity);
         this.timeUtil = new TimeUtil();
         this.printUtil = new PrintUtil();
@@ -50,14 +55,13 @@ public class HamburgerTray {
          * Prints the current status of the hamburgerTray
          */
         System.out.print("Hamburgers on the track: ");
-        Iterator<Hamburger> hamburgerOnTray = hamburgerTray.iterator();
 
         if (hamburgerTray.isEmpty()) {
             System.out.print("[ ] ");
             }
         else {
-            while (hamburgerOnTray.hasNext()) {
-                System.out.print("[" + hamburgerOnTray.next().getId() + "] ");
+            for (Hamburger hamburger : hamburgerTray ) {
+                System.out.print("[" + hamburger.getId() + "] ");
                 }
             }
         System.out.println();

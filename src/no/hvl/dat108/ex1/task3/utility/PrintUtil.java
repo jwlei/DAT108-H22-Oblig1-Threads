@@ -11,10 +11,10 @@ public class PrintUtil {
     }
 
     public void printAddHamburger(Hamburger hamburger){
-        System.out.print(timeUtil.currentTimeStamp() + Thread.currentThread().getName() + " adds [" + hamburger.getId() + "]" + " => ");
+        System.out.print(timeUtil.currentTimeStamp() + Thread.currentThread().getName() + " puts [" + hamburger.getId() + "]" + " => ");
     }
 
     public void printRemoveHamburger(Hamburger hamburger){
-        System.out.print(timeUtil.currentTimeStamp() + Thread.currentThread().getName() + " collects [" + hamburger.getId() + "]" + " <= ");
+        System.out.print(timeUtil.currentTimeStamp() + Thread.currentThread().getName() + " takes [" + hamburger.getId() + "]" + " <= ");
     }
 }

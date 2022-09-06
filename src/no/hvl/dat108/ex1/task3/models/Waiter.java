@@ -27,7 +27,6 @@ public class Waiter extends Thread {
             try {
                 int wait = timeUtil.TimeToMake();
                 this.sleep(wait);
-                // Todo: Remove burger - made in hamburgerTRAY class
                 hamburgerTray.removeHamburgerFromTray();
                 //System.out.println(timeUtil.currentTimeStamp() + "Waiter " + Thread.currentThread().getName() + " doing the work");
             } catch (InterruptedException e) {
