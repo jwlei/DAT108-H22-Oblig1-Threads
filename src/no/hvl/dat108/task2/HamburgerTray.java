@@ -1,4 +1,4 @@
-package no.hvl.dat108.ex1.task2;
+package no.hvl.dat108.task2;
 
 import java.util.ArrayDeque;
 import java.util.Queue;

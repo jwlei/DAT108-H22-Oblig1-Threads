@@ -1,12 +1,12 @@
-package no.hvl.dat108.ex1.task2;
+package no.hvl.dat108.task2;
 
-public class Waiter implements Runnable {
+public class Chef implements Runnable {
 
     private String name;
     private HamburgerTray hamburgerTray;
 
 
-    public Waiter(HamburgerTray hamburgerTray, String name) {
+    public Chef(HamburgerTray hamburgerTray, String name) {
         this.name = name;
         this.hamburgerTray = hamburgerTray;
     }
@@ -15,18 +15,20 @@ public class Waiter implements Runnable {
     public void run() {
         Thread.currentThread().setName(name);
 
-        while (true) {
+        while(true) {
             try {
                 int delay = randomTimerGenerator(2,6);
                 Thread.sleep(delay);
-                hamburgerTray.takeBurger();
+                hamburgerTray.addBurger(new Hamburger());
             } catch (InterruptedException e) {
-
+                throw new RuntimeException(e);
             }
         }
-        // Check to see if there are any burgers
-        // then serve a burger
+    }
 
+    @Override
+    public String toString() {
+        return "Chef ( " + name + " ) ";
     }
 
     public int randomTimerGenerator(int min, int max) {
@@ -35,8 +37,7 @@ public class Waiter implements Runnable {
     }
 
 
-    @Override
-    public String toString() {
-        return "Waiter ( " + name + " ) ";
-    }
 }
+
+
+

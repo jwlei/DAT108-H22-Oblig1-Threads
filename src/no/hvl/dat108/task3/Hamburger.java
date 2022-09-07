@@ -1,14 +1,12 @@
-package no.hvl.dat108.ex1.task2;
+package no.hvl.dat108.task3;
 
 public class Hamburger {
 
     private int hamburgerId;
     private static int burgerNr;
     public Hamburger() {
-        synchronized (Hamburger.class) {
             burgerNr++;
             hamburgerId = burgerNr;
-        }
     }
 
     @Override

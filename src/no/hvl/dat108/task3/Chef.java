@@ -1,4 +1,4 @@
-package no.hvl.dat108.ex1.task2;
+package no.hvl.dat108.task3;
 
 public class Chef implements Runnable {
 
