@@ -3,32 +3,45 @@ package no.hvl.dat108.ex1.task3.models;
 import no.hvl.dat108.ex1.task3.utility.PrintUtil;
 import no.hvl.dat108.ex1.task3.utility.TimeUtil;
 
+import java.util.concurrent.BlockingQueue;
+
 public class Waiter extends Thread {
     /**
      * Waiter threads
      * Removes hamburger from tray at customer order
      */
-    private final HamburgerTray hamburgerTray;
     private final TimeUtil timeUtil;
-    private String name;
-    private int timeToMake;
+    private final PrintUtil printUtil = new PrintUtil();
+    BlockingQueue<Hamburger> blockingQueue;
 
 
-    public Waiter(HamburgerTray hamburgerTray, String name, TimeUtil timeUtil) {
+    public Waiter(BlockingQueue<Hamburger> blockingQueue, String name, TimeUtil timeUtil) {
+        this.blockingQueue = blockingQueue;
         this.setName(name);
-        this.hamburgerTray = hamburgerTray;
         this.timeUtil = timeUtil;
     }
 
 
-    public void run() {
+    public void removeHamburgerFromTray() throws InterruptedException {
+        /**
+         * Function for waiter to hamburger burger from tray and deliver to "customer"
+         */
+        try {
+            Hamburger deliveredHamburger = blockingQueue.take();
+            printUtil.printRemoveHamburger(deliveredHamburger);
+            printUtil.printHamburgerTray(blockingQueue);
 
+        } catch (InterruptedException e){
+            e.printStackTrace();
+        }
+    }
+
+
+    public void run() {
         while (true) {
             try {
-                int wait = timeUtil.TimeToMake();
-                this.sleep(wait);
-                hamburgerTray.removeHamburgerFromTray();
-                //System.out.println(timeUtil.currentTimeStamp() + "Waiter " + Thread.currentThread().getName() + " doing the work");
+                this.sleep(timeUtil.TimeToMake());
+                removeHamburgerFromTray();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
