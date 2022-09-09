@@ -21,7 +21,7 @@ public class Kokk extends Thread {
         while(true) {
 
             try {
-                Thread.sleep(random.nextInt(4000) + 2000);
+                Thread.sleep(random.nextInt(2000) + 4000);
                 Hamburger nyHamburger = new Hamburger();
                 if(bq.remainingCapacity() == 0) {
                     System.out.println(this.getName() + " Prøver å legge til " + nyHamburger.getType() + ", men brettet er fullt");
