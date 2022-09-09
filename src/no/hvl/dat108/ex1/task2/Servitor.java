@@ -19,7 +19,7 @@ public class Servitor extends Thread {
 		while(true) {
 
 			try {
-				this.sleep(random.nextInt(4000) + 2000);
+				this.sleep(random.nextInt(2000) + 4000);
 				hamburgerbrett.getHamburger();
 				
 			} catch (InterruptedException x) {

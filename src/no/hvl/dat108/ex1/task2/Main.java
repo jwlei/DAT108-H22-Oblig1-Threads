@@ -12,7 +12,7 @@ public class Main {
     Kokk kokk2 = new Kokk(hamburgerBrett, "Kokk2");
     Kokk kokk3 = new Kokk(hamburgerBrett, "Kokk3");
     Servitor serv1 = new Servitor(hamburgerBrett, "Servitor1");
-    Servitor serv2 = new Servitor(hamburgerBrett, "Servitor1");
+    Servitor serv2 = new Servitor(hamburgerBrett, "Servitor2");
 
     kokk1.start();
     kokk2.start();
