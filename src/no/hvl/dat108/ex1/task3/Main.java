@@ -6,8 +6,9 @@ import no.hvl.dat108.ex1.task3.models.Waiter;
 import no.hvl.dat108.ex1.task3.utility.TimeUtil;
 
 import java.util.Arrays;
-import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.LinkedBlockingDeque;
+
 
 
 public class Main {
@@ -25,7 +26,7 @@ public class Main {
         final int capacity = 4;
         final int minimumTimeToMake = 2000, maximumTimeToMake = 6000; // In milliseconds
         TimeUtil timeUtil = new TimeUtil(minimumTimeToMake, maximumTimeToMake);
-        final BlockingQueue<Hamburger> blockingQueue = new ArrayBlockingQueue<>(capacity);
+        final BlockingQueue<Hamburger> blockingQueue = new LinkedBlockingDeque<>(capacity);
 
 
         //Init print

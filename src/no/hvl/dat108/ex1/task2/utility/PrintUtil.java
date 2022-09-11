@@ -15,11 +15,11 @@ public class PrintUtil {
     }
 
     public void printIsFull() {
-        System.out.print(timeUtil.currentTimeStamp() + Thread.currentThread().getName() + " waiting to deliver hamburger to the tray ");
+        System.out.print(timeUtil.currentTimeStamp() + Thread.currentThread().getName() + " waiting to deliver hamburger to the tray: ");
     }
 
     public void printIsEmpty(){
-        System.out.print(timeUtil.currentTimeStamp() + Thread.currentThread().getName() + " waiting to collect a hamburger from the tray ");
+        System.out.print(timeUtil.currentTimeStamp() + Thread.currentThread().getName() + " waiting to collect a hamburger from the tray: ");
     }
 
     public void printAddHamburger(Hamburger hamburger){

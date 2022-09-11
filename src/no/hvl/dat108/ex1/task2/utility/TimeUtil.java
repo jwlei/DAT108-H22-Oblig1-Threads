@@ -35,6 +35,7 @@ public class TimeUtil {
          * Get a random time to make a hamburger
          * between 2-6 seconds
          */
-        return timeToMake = random.nextInt((maximumTimeToMake - minimumTimeToMake) + minimumTimeToMake);
+        return timeToMake =  minimumTimeToMake + random.nextInt(maximumTimeToMake);
+        //return timeToMake = random.nextInt((maximumTimeToMake - minimumTimeToMake) + minimumTimeToMake);
     }
 }

@@ -43,9 +43,7 @@ public class Waiter extends Thread {
         while (true) {
             try {
                 // WAIT
-                System.out.println(timeUtil.currentTimeStamp() + Thread.currentThread().getName() + " is sleeping ...");
                 Thread.sleep(timeUtil.TimeToMake());
-                System.out.println(timeUtil.currentTimeStamp() + Thread.currentThread().getName() + " is AWAKE");
             } catch (InterruptedException e){
                 e.printStackTrace();
             }
