@@ -1,7 +1,5 @@
 package no.hvl.dat108.ex1.task1;
 
-import java.sql.Time;
-
 public class Main {
     public static void main(String[] args) {
         /**

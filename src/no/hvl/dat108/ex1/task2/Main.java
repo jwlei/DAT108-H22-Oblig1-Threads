@@ -18,26 +18,21 @@ public class Main {
          */
         /*
 
-        TODO: Done
         Krav til programmet
-         Både Hamburger, HamburgerBrett, Kokk og Servitor skal være klasser i programmet
+        * Både Hamburger, HamburgerBrett, Kokk og Servitor skal være klasser i programmet
         slik det er naturlig. Kokker og servitører er tråder, mens brettet er en delt ressurs
         som både kokker og servitører forholder seg til.
 
-        TODO: Done
         * De ulike objektene i programmet skal samarbeide via referanser til hverandre, ikke
         gjennom globale variabler.
 
-        TODO: Done?
         * Programmet må være trådsikkert slik at det ikke blir rot i tellingen og i køen av
         hamburgere. Kokker og servitører må vente hvis det er nødvendig, ikke bare kjøre
         videre.
 
-        TODO: Done
         * Hvis brettet er tomt, må servitører vente til det er lagt en ny hamburger på, og hvis
         brettet er fullt, må kokker vente til det er tatt en hamburger av.
 
-        TODO: Done-ish
         * Det er meningen at dere skal bruke tråd-primitivene synchronized, wait, notify og
         notifyAll til å løse oppgaven. Dere kan ikke bruke klasser fra java.util.concurrent-API-
         et, f.eks. Lock og BlockingQueue.
@@ -45,6 +40,7 @@ public class Main {
         TODO: Correct logic for timeToMakeAndOrder (2000-6000ms per hamburger)
         * Tiden det tar å lage og bestille en hamburger skal være (random) mellom 2 og 6 sek.
          */
+
 
         final String[] chefs = {"Joachim", "Finn", "Sindre"};
         final String[] waiters = {"Pernille", "Sara"};
@@ -87,8 +83,6 @@ public class Main {
             new Waiter(hamburgerTray, name, timeUtil).start();
             System.out.println(timeUtil.currentTimeStamp() + name + " is ready to work");
         }
-
         System.out.println(" --- --- --- --- --- --- --- --- --- --- ");
-
     }
 }

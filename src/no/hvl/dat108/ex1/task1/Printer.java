@@ -33,6 +33,7 @@ public class Printer implements Runnable {
         System.out.println("Printer has exited and ended.");
     }
 
+
     public void setMessage(String message) {
         this.message = message;
     }
@@ -44,6 +45,4 @@ public class Printer implements Runnable {
          */
         notify();
     }
-
-
 }
