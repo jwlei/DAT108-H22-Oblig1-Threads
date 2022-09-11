@@ -37,6 +37,7 @@ public class HamburgerTray {
 
     public HamburgerTray(int i) {
         /**
+         * Constructor
          * Create the track with a capacity of 4 hamburgers
          */
         hamburgerTray = new Hamburger[i];
@@ -51,8 +52,6 @@ public class HamburgerTray {
         /**
          * Prints the current status of the hamburgerTray
          */
-        // TODO: Migrate to printUtil?
-        //System.out.print(timeUtil.currentTimeStamp() + "Hamburgers on the track: ");
         System.out.print("Hamburgers on the track: ");
 
         if (hamburgerTray[0] == null) {

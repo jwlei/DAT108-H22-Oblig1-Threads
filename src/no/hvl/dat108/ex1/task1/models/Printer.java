@@ -1,4 +1,6 @@
-package no.hvl.dat108.ex1.task1;
+package no.hvl.dat108.ex1.task1.models;
+
+import no.hvl.dat108.ex1.task1.utility.TimeUtil;
 
 public class Printer implements Runnable {
 

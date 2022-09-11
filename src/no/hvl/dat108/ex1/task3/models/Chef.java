@@ -11,15 +11,17 @@ public class Chef extends Thread {
      * Puts it on the hamburgertray when done
      */
 
-    private final TimeUtil timeUtil;
+    private final TimeUtil timeUtil = new TimeUtil();
     private final PrintUtil printUtil = new PrintUtil();
-    BlockingQueue<Hamburger> blockingQueue;
+    private BlockingQueue<Hamburger> blockingQueue;
 
 
-    public Chef(BlockingQueue<Hamburger> blockingQueue, String name, TimeUtil timeUtil) {
+    public Chef(BlockingQueue<Hamburger> blockingQueue, String name) {
+        /**
+         * Constructor
+         */
         this.setName(name);
         this.blockingQueue = blockingQueue;
-        this.timeUtil = timeUtil;
     }
 
 
@@ -34,14 +36,12 @@ public class Chef extends Thread {
     public void addHamburgerToTray(Hamburger hamburger) throws InterruptedException {
         /**
          * Function to add hamburger to the tray
+         * .put(object) adds object to the queue,
+         * if the queue is full, waits until there is a spot available
          */
-        try {
-            blockingQueue.put(hamburger);
-            printUtil.printAddHamburger(hamburger);
-            printUtil.printHamburgerTray(blockingQueue);
-        } catch (InterruptedException e){
-            e.printStackTrace();
-        }
+        blockingQueue.put(hamburger);
+        printUtil.printAddHamburger(hamburger);
+        printUtil.printHamburgerTray(blockingQueue);
     }
 
 
@@ -50,9 +50,13 @@ public class Chef extends Thread {
         while(true) {
             try {
                 // WAIT
-                sleep(timeUtil.TimeToMake());
+                Thread.sleep(timeUtil.TimeToMake());
+            } catch (InterruptedException e){
+                e.printStackTrace();
+            }
+            try {
                 // CREATE AND ADD HAMBURGER
-               addHamburgerToTray(new Hamburger());
+                addHamburgerToTray(new Hamburger());
             } catch (InterruptedException e){
                 e.printStackTrace();
             }

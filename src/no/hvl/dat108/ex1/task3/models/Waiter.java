@@ -10,28 +10,30 @@ public class Waiter extends Thread {
      * Waiter threads
      * Removes hamburger from tray at customer order
      */
-    private final TimeUtil timeUtil;
+    private final TimeUtil timeUtil = new TimeUtil();
     private final PrintUtil printUtil = new PrintUtil();
-    BlockingQueue<Hamburger> blockingQueue;
+    private BlockingQueue<Hamburger> blockingQueue;
 
 
-    public Waiter(BlockingQueue<Hamburger> blockingQueue, String name, TimeUtil timeUtil) {
+    public Waiter(BlockingQueue<Hamburger> blockingQueue, String name) {
+        /**
+         * Constructor
+         */
         this.blockingQueue = blockingQueue;
         this.setName(name);
-        this.timeUtil = timeUtil;
-    }
 
+    }
 
     public void removeHamburgerFromTray() throws InterruptedException {
         /**
          * Function for waiter to hamburger burger from tray and deliver to "customer"
+         * .take() - Takes the head of the que, if empty, waits until available.
          */
+        Hamburger deliveredHamburger = blockingQueue.take();
         try {
-            Hamburger deliveredHamburger = blockingQueue.take();
             printUtil.printRemoveHamburger(deliveredHamburger);
             printUtil.printHamburgerTray(blockingQueue);
-
-        } catch (InterruptedException e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -40,7 +42,15 @@ public class Waiter extends Thread {
     public void run() {
         while (true) {
             try {
-                this.sleep(timeUtil.TimeToMake());
+                // WAIT
+                System.out.println(timeUtil.currentTimeStamp() + Thread.currentThread().getName() + " is sleeping ...");
+                Thread.sleep(timeUtil.TimeToMake());
+                System.out.println(timeUtil.currentTimeStamp() + Thread.currentThread().getName() + " is AWAKE");
+            } catch (InterruptedException e){
+                e.printStackTrace();
+            }
+            try {
+                // REMOVE HAMBURGER FROM TRAY
                 removeHamburgerFromTray();
             } catch (InterruptedException e) {
                 e.printStackTrace();

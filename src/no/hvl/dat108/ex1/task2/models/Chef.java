@@ -16,6 +16,9 @@ public class Chef extends Thread {
 
 
     public Chef(HamburgerTray hamburgerTray, String name, TimeUtil timeUtil) {
+        /**
+         * Constructor
+         */
         this.setName(name);
         this.hamburgerTray = hamburgerTray;
         this.timeUtil = timeUtil;
@@ -33,11 +36,9 @@ public class Chef extends Thread {
         while(true) {
             try {
                 // WAIT
-                int wait = timeUtil.TimeToMake();
-                this.sleep(wait);
+                this.sleep(timeUtil.TimeToMake());
                 // CREATE AND ADD HAMBURGER
                 hamburgerTray.addHamburgerToTray(new Hamburger());
-                //Test line - System.out.println(timeUtil.currentTimeStamp() + "Chef " + Thread.currentThread().getName() + " doing the work");
             } catch (InterruptedException e){
                 e.printStackTrace();
             }

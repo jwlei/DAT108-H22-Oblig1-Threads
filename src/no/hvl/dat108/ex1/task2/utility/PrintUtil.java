@@ -14,7 +14,6 @@ public class PrintUtil {
         System.out.print("[TRAY IS EMPTY] ");
     }
 
-    // TODO: sout --> return string
     public void printIsFull() {
         System.out.print(timeUtil.currentTimeStamp() + Thread.currentThread().getName() + " waiting to deliver hamburger to the tray ");
     }

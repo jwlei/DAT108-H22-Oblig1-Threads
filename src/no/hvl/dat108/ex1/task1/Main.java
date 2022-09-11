@@ -1,5 +1,8 @@
 package no.hvl.dat108.ex1.task1;
 
+import no.hvl.dat108.ex1.task1.models.InputDialog;
+import no.hvl.dat108.ex1.task1.models.Printer;
+
 public class Main {
     public static void main(String[] args) {
         /**

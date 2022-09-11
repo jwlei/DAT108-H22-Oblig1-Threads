@@ -37,7 +37,6 @@ public class Main {
         notifyAll til å løse oppgaven. Dere kan ikke bruke klasser fra java.util.concurrent-API-
         et, f.eks. Lock og BlockingQueue.
 
-        TODO: Correct logic for timeToMakeAndOrder (2000-6000ms per hamburger)
         * Tiden det tar å lage og bestille en hamburger skal være (random) mellom 2 og 6 sek.
          */
 
@@ -55,14 +54,12 @@ public class Main {
                             + timeUtil.currentTimeStamp() + "Capacity of the hamburger tray is: " + (capacity) + " hamburgers\n"
                             + " --- --- --- --- --- --- --- --- --- --- ");
 
-        // 1 Tray
-            /*
-              Initialize a hamburgerTray with (capacity)
-             */
+        /*
+          Initialize a hamburgerTray with (capacity)
+         */
         HamburgerTray hamburgerTray = new HamburgerTray(capacity);
 
 
-        // 3 Chefs
         for (String name : chefs) {
             /*
               Start all chef threads
@@ -73,7 +70,7 @@ public class Main {
             System.out.println(timeUtil.currentTimeStamp() + name + " is ready to work");
         }
 
-        // 2 Waiters
+
         for (String name : waiters) {
             /*
               Start all waiter threads

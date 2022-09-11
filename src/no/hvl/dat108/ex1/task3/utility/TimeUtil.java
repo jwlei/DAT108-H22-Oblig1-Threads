@@ -7,8 +7,8 @@ import java.util.Random;
 public class TimeUtil {
 
     private Random random = new Random();
-    private int minimumTimeToMake;
-    private int maximumTimeToMake;
+    private int minimumTimeToMake = 2000;
+    private int maximumTimeToMake = 4000;
     public int timeToMake;
 
     public TimeUtil(){}
@@ -32,7 +32,6 @@ public class TimeUtil {
          * Get a random time to make a hamburger
          * between 2-6 seconds
          */
-        //return timeToMake = random.nextInt((maximumTimeToMake - minimumTimeToMake) + 1) + minimumTimeToMake;
-        return timeToMake = random.nextInt((minimumTimeToMake) + maximumTimeToMake);
+        return timeToMake = random.nextInt((maximumTimeToMake - minimumTimeToMake) + minimumTimeToMake);
     }
 }

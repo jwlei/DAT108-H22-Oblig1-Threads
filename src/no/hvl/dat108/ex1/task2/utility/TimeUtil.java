@@ -13,6 +13,9 @@ public class TimeUtil {
 
     public TimeUtil(){}
     public TimeUtil(int minimumTimeToMake, int maximumTimeToMake){
+        /**
+         * Constructor
+         */
         this.minimumTimeToMake = minimumTimeToMake;
         this.maximumTimeToMake = maximumTimeToMake;
     }
@@ -32,7 +35,6 @@ public class TimeUtil {
          * Get a random time to make a hamburger
          * between 2-6 seconds
          */
-        //return timeToMake = random.nextInt((maximumTimeToMake - minimumTimeToMake) + 1) + minimumTimeToMake;
-        return timeToMake = random.nextInt((minimumTimeToMake) + maximumTimeToMake);
+        return timeToMake = random.nextInt((maximumTimeToMake - minimumTimeToMake) + minimumTimeToMake);
     }
 }
