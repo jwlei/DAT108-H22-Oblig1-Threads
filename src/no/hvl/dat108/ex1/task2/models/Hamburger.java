@@ -13,7 +13,8 @@ public class Hamburger {
         id = ++hamburgerNumber;
     }
 
-    public String getId() {
+    @Override
+    public String toString() {
         return hamburgerId = "HamburgerID: " + id;
     }
 }

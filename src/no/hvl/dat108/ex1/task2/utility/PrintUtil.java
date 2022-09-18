@@ -23,10 +23,10 @@ public class PrintUtil {
     }
 
     public void printAddHamburger(Hamburger hamburger){
-        System.out.print(timeUtil.currentTimeStamp() + Thread.currentThread().getName() + " adds [" + hamburger.getId()+"]" + " => ");
+        System.out.print(timeUtil.currentTimeStamp() + Thread.currentThread().getName() + " adds [" + hamburger.toString()+"]" + " => ");
     }
 
     public void printRemoveHamburger(Hamburger deliver){
-        System.out.print(timeUtil.currentTimeStamp() + Thread.currentThread().getName() + " collects [" + deliver.getId() + "]" + " <= ");
+        System.out.print(timeUtil.currentTimeStamp() + Thread.currentThread().getName() + " collects [" + deliver.toString() + "]" + " <= ");
     }
 }
