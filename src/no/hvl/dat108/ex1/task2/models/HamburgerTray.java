@@ -57,7 +57,7 @@ public class HamburgerTray {
         }
         else {
             for (Hamburger hamburger : hamburgerTray) {
-                // For each burger, get ID and print.
+                // For each burger, print using @Overridden toString()
                 System.out.print("[" + hamburger.toString() + "] ");
             }
          }
@@ -66,7 +66,7 @@ public class HamburgerTray {
 
     public synchronized boolean isFull() {
         /**
-         * Checks if the que is full
+         * Checks if the que is full according to our specified capacity
          */
         return hamburgerTray.size() == capacity;
     }
@@ -82,12 +82,14 @@ public class HamburgerTray {
             wait();
         }
 
+        // Add the new hamburger last in the queue
         hamburgerTray.addLast(hamburger);
         printUtil.printAddHamburger(hamburger);
         printHamburgerTray();
 
         if (hamburgerTray.size() < capacity) {
-            // If last in que == 1, notify threads(chefs) that the tray is ready to receive hamburgers
+            // The size of the linkedlist is less than our specified capacity
+            // notify threads(chefs) that the tray is ready to receive hamburgers
             notify();
         }
     }
@@ -107,7 +109,7 @@ public class HamburgerTray {
         Hamburger deliver = hamburgerTray.removeFirst();
 
         if (hamburgerTray.size() <= capacity-1)
-            // If there is a room in the que, notify the sleeping threads(chefs)
+            // If there is a room in the queue, notify the sleeping threads(chefs)
             notify();
 
         printUtil.printRemoveHamburger(deliver);
